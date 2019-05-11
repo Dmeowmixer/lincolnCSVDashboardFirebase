@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { CSVReader } from 'react-papaparse';
-
 import firebase from './Firebase';
+import { Button, Table } from 'reactstrap';
 
-const JsonTable = require('ts-react-json-table');
-const db = firebase.database().ref('lincolnViewer');
+
+const db = firebase.database().ref('lincoln');
 class Parser extends Component {
   constructor(props){
     super(props);
@@ -62,7 +62,6 @@ class Parser extends Component {
 
   hideAnon = () => {
     if(!this.state.hideDonations){
-      console.log('clicked true');
       this.setState({
         hideDonations: true
       })
@@ -79,7 +78,6 @@ class Parser extends Component {
         }, this.getTotalDonations)
       }
     }else{
-      console.log('clicked falsey')
       db.on('value', (snapshot) => {
         this.setState({
           data: snapshot.val(),
@@ -107,10 +105,35 @@ class Parser extends Component {
           onError={this.handleonError}
           configOptions={{header: true /* Header row support */ }}
         />
-        <button onClick={this.handleInputOffer}>Import</button>
-        <button onClick={this.hideAnon}>Filter Anonymous Donations</button>
-        <JsonTable rows = {this.state.data} />
-        <p>Total Donation Amount ${this.state.totalDonations}</p>
+        <Button color="danger" onClick={this.handleInputOffer}>Import</Button>
+        <Button color="danger" onClick={this.hideAnon}>Filter Anonymous Donations</Button>
+        <h1>Total Donation Amount ${this.state.totalDonations}</h1>
+        <Table>
+          <thead>
+            <tr>
+              <th>Donation Amount</th>
+              <th>Donor Address</th>
+              <th>Donor Email</th>
+              <th>Donor Gender</th>
+              <th>Donor ID</th>
+              <th>Donor Name</th>
+            </tr>
+          </thead>
+          <tbody>
+              {this.state.data.map((data, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{data.donation_amount}</td>
+                    <td>{data.donor_address}</td>
+                    <td>{data.donor_email}</td>
+                    <td>{data.donor_gender}</td>
+                    <td>{data.donor_id}</td>
+                    <td>{data.donor_name}</td>
+                  </tr>
+                )
+              })}
+          </tbody>
+        </Table>
       </div>
     )
   }
@@ -121,3 +144,4 @@ export default Parser;
 
 // ToDo
  // Webhook to Slack
+ // basic basic styling

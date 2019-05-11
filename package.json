@@ -4,17 +4,16 @@
   "private": true,
   "dependencies": {
     "@react-firebase/database": "^0.3.10",
+    "bootstrap": "^4.3.1",
     "firebase": "^6.0.1",
     "papaparse": "^4.6.3",
     "react": "^16.8.6",
-    "react-csv-to-table": "0.0.1",
     "react-dom": "^16.8.6",
     "react-firestore": "^1.0.1",
     "react-papaparse": "^1.0.5",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "react-table": "^6.10.0",
-    "ts-react-json-table": "^0.1.1"
+    "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
