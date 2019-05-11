@@ -4,4 +4,4 @@ To start development server run npm start
 
 React front-end, with Google Firebase Real time database backend.
 
-Project hosted on Netlify w/ NetlifyCD at practical-lumiere-e4fd23.netlify.com
+Project hosted on Netlify w/ NetlifyCD at https://practical-lumiere-e4fd23.netlify.com
