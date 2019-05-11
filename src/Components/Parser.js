@@ -140,8 +140,3 @@ class Parser extends Component {
 }
 
 export default Parser;
-
-
-// ToDo
- // Webhook to Slack
- // basic basic styling
