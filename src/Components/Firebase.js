@@ -9,8 +9,6 @@ const config = {
   appId:process.env.REACT_APP_APPID
 };
 
-if(!firebase.apps.length){
-  firebase.initializeApp(config);
-}
+firebase.initializeApp(config);
 
 export default firebase;
