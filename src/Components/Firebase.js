@@ -1,5 +1,7 @@
 // import firebase from './Firebase';
 import app from 'firebase/app';
+import auth from 'firebase/auth';
+import database from 'firebase/database';
 const config = {
   apiKey:process.env.REACT_APP_API_KEY,
   authDomain:process.env.REACT_APP_AUTHDOMAIN,
