@@ -1,4 +1,5 @@
-import firebase from './Firebase';
+// import firebase from './Firebase';
+import app from 'firebase/app';
 const config = {
   apiKey:process.env.REACT_APP_API_KEY,
   authDomain:process.env.REACT_APP_AUTHDOMAIN,
@@ -8,5 +9,10 @@ const config = {
   messagingSenderId:process.env.REACT_APP_MESSAGINGSENDERID,
   appId:process.env.REACT_APP_APPID
 };
+class Firebase {
+  constructor(){
+    app.initializeApp(config)
+  }
+}
 
-firebase.initializeApp(config);
+export default Firebase;
