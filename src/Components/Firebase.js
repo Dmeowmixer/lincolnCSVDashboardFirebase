@@ -10,8 +10,7 @@ const config = {
 };
 
 if(!firebase.apps.length){
-  const app = firebase.initializeApp(config);
+  firebase.initializeApp(config);
 }
 
-
-export { app };
+export default firebase;
