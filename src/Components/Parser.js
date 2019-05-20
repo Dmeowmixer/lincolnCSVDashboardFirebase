@@ -3,7 +3,9 @@ import { CSVReader } from 'react-papaparse';
 import firebase from './Firebase';
 import { Button, Table } from 'reactstrap';
 
-const db = firebase.database().ref('lincoln');
+const app = firebase.initializeApp(config);
+
+const db = app.database().ref('lincoln');
 class Parser extends Component {
   constructor(props){
     super(props);
