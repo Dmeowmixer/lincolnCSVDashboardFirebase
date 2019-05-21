@@ -3,6 +3,7 @@ import { CSVReader } from 'react-papaparse';
 import firebase from 'firebase';
 // import firebase from './Firebase';
 import { Button, Table } from 'reactstrap';
+
 const config = {
   apiKey:process.env.REACT_APP_API_KEY,
   authDomain:process.env.REACT_APP_AUTHDOMAIN,
@@ -12,10 +13,10 @@ const config = {
   messagingSenderId:process.env.REACT_APP_MESSAGINGSENDERID,
   appId:process.env.REACT_APP_APPID
 };
-const app = firebase.initalizeApp(config);
 
+firebase.initalizeApp(config);
+const db = firebase.database().ref('lincoln');
 
-const db = app.database().ref('lincoln');
 class Parser extends Component {
   constructor(props){
     super(props);
