@@ -5,11 +5,10 @@
   "dependencies": {
     "@react-firebase/database": "^0.3.10",
     "bootstrap": "^4.3.1",
-    "firebase": "^6.0.1",
+    "firebase": "^6.0.2",
     "papaparse": "^4.6.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-firestore": "^1.0.1",
     "react-papaparse": "^1.0.5",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",

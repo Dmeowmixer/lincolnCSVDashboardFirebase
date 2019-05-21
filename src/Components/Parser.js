@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { CSVReader } from 'react-papaparse';
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 // import firebase from './Firebase';
 import { Button, Table } from 'reactstrap';
 
@@ -14,8 +14,8 @@ const config = {
   appId:process.env.REACT_APP_APPID
 };
 
-firebase.initalizeApp(config);
-const db = firebase.database();
+firebase.initializeApp(config);
+const db = firebase.database().ref('lincoln');
 
 class Parser extends Component {
   constructor(props){
@@ -32,7 +32,7 @@ class Parser extends Component {
 
   componentDidMount(){
     // let total = 0;
-    db.ref('lincoln').on('value', (snapshot) => {
+    db.on('value', (snapshot) => {
       this.setState({
         data: snapshot.val()
       }, this.getTotalDonations)
@@ -61,7 +61,7 @@ class Parser extends Component {
     const data = this.state.data.concat(snapshot.data)
     // const data = stateData.concat(snapshot.data);
 
-    db.ref('lincoln').set(data)
+    db.set(data)
 
     this.setState({
       data: data
@@ -90,7 +90,7 @@ class Parser extends Component {
         }, this.getTotalDonations)
       }
     }else{
-      db.ref('lincoln').on('value', (snapshot) => {
+      db.on('value', (snapshot) => {
         this.setState({
           data: snapshot.val(),
           hideDonations: false
