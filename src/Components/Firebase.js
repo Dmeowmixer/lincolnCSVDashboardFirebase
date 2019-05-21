@@ -10,6 +10,5 @@ const config = {
   appId:process.env.REACT_APP_APPID
 };
 const app = firebase.initalizeApp(config)
-const db = firebase.database().ref('lincoln');
 
-export { db }
+export { app }
