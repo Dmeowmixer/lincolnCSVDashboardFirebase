@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CSVReader } from 'react-papaparse';
+import firebae from 'firebase';
 // import firebase from './Firebase';
 import { Button, Table } from 'reactstrap';
 const config = {
